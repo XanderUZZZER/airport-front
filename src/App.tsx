@@ -1,12 +1,15 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 import FlightsList from './features/flights/FlightsList'
 
 function App() {
   return (
-    <div className='App'>
-      <FlightsList />
-    </div>
+    <Router>
+      <div className='App'>
+        <Route path='/' component={FlightsList} />
+      </div>
+    </Router>
   )
 }
 

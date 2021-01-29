@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Flight = ({ flight }) => {
+const FlightItem = ({ flight }) => {
   return (
     <div>
       <h4>Flight with id: {flight.id}</h4>
@@ -13,4 +13,4 @@ const Flight = ({ flight }) => {
   )
 }
 
-export default Flight
+export default FlightItem

@@ -15,36 +15,21 @@ export const flightsSlice = createSlice({
   initialState,
   reducers: {
     listFlights: (state, action) => {
-      console.log(action.payload);
-      console.log(state.flights);
-      const flights = action.payload
-
-      state.flights = flights
+      state.flights = action.payload
     },
     decrement: state => {
-
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     incrementByAmount: (state, action: PayloadAction<number>) => {
-
     },
   },
 });
 
-export const { listFlights, decrement, incrementByAmount } = flightsSlice.actions;
+export const { listFlights } = flightsSlice.actions;
 
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
 export const listFlightsAsync = (): AppThunk => async dispatch => {
   const { data } = await axios.get<FlightsState>(`flights`)
   dispatch(listFlights(data))
-};
-export const incrementAsync = (amount: number): AppThunk => dispatch => {
-  setTimeout(() => {
-    dispatch(incrementByAmount(amount));
-  }, 1000);
 };
 
 // The function below is called a selector and allows us to select a value from

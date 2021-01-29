@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFlights, listFlightsAsync } from '../flights/flightSlice'
-import Flight from './Flight'
+import FlightItem from './FlightItem'
 
 const FlightsList = () => {
   const flights = useSelector(selectFlights)
@@ -13,7 +13,7 @@ const FlightsList = () => {
 
   return (
     <div>
-      {(flights.length > 0) && flights.map(flight => <Flight flight={flight} key={flight.id} />)}
+      {(flights.length > 0) && flights.map(flight => <FlightItem flight={flight} key={flight.id} />)}
     </div>
   )
 }
